@@ -62,5 +62,5 @@ cmake  \
 -DPYTHON_NUMPY_INCLUDE_DIR=$PYTHON_NUMPY_INCLUDE_DIR \
 -DPYTHON_PACKAGES_PATH=$PYTHON_PACKAGES_PATH \
 -Wno-dev ../
-make
+make -j17
 sudo make install
