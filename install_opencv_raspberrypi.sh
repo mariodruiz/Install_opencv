@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Step 0: Again, I’m going to assume that you have just unboxed your Raspberry Pi 2/B+. 
 # Open up a terminal and we’ll start by updating and upgrading installed packages, followed 
