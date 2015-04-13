@@ -7,7 +7,7 @@ Allow install opencv in a Red Hat distribution.
 
 It is based in:
 
--Shunta Saito script (@mitmul) https://gist.github.com/mitmul/9253702
+-Shunta Saito script ([@mitmul](https://gist.github.com/mitmul)) https://gist.github.com/mitmul/9253702
 #The Script install_opencv_raspberrypi.sh:
 
 Allow install opencv in a raspberrypi 1 or 2
