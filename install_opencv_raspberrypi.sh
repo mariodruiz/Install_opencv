@@ -13,7 +13,6 @@ libpng12-dev libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-
 # Step 2: install pip.
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py 	
-
 pip install numpy	
 
 # Step 3: Install  virtualenv  and virtualenvwrapper.
