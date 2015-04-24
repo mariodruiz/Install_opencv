@@ -37,6 +37,7 @@ cmake \
 -D INSTALL_PYTHON_EXAMPLES=ON  \
 -D BUILD_EXAMPLES=ON .. 
 # compile OpenCV
+
 make -j$(nproc)
 sudo make install
 sudo ldconfig
