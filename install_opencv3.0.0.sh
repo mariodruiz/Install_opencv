@@ -1,9 +1,10 @@
 #! /bin/bash
-sudo yum install -y gcc g++ gtk+-devel libjpeg-devel libtiff-devel jasper-devel libpng-devel zlib-devel cmake unzip
-sudo yum install -y yum-priorities
+sudo yum install -y gcc g++ gtk+-devel libjpeg-devel libtiff-devel jasper-devel libpng-devel zlib-devel cmake unzip python-devel \
+	ncurses-devel texinfo gtk2-devel qt-devel tcl-devel tk-devel kernel-headers kernel-devel yum-priorities eigen3-devel —enablerepo=epel
+
 wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
 sudo rpm -ivh epel-release-6-8.noarch.rpm
-sudo yum install -y eigen3-devel —enablerepo=epel
+
 pip install numpy
 
 wget https://github.com/Itseez/opencv/archive/3.0.0-beta.zip
@@ -44,23 +45,33 @@ cmake  \
 -DWITH_OPENCLAMDBLAS=OFF  \
 -DWITH_OPENCLAMDFFT=OFF  \
 -DWITH_OPENEXR=OFF  \
--DWITH_OPENGL=OFF  \
+-DWITH_OPENGL=ON  \
 -DWITH_OPENMP=OFF  \
 -DWITH_OPENNI=OFF  \
 -DWITH_PNG=ON  \
 -DWITH_PVAPI=OFF  \
 -DWITH_QT=OFF  \
--DWITH_TBB=OFF  \
+-DWITH_TBB=ON  \
 -DWITH_TIFF=ON  \
 -DWITH_UNICAP=OFF  \
--DWITH_V4L=OFF  \
+-DWITH_V4L=ON  \
 -DWITH_XIMEA=OFF  \
--DWITH_XINE=OFF  \
+-DWITH_XINE=ON  \
 -DPYTHON_EXECUTABLE=$PYTHON_EXECUTABLE  \
 -DPYTHON_INCLUDE_PATH=$PYTHON_INCLUDE_PATH \
 -DPYTHON_LIBRARY=$PYTHON_LIBRARY \
 -DPYTHON_NUMPY_INCLUDE_DIR=$PYTHON_NUMPY_INCLUDE_DIR \
 -DPYTHON_PACKAGES_PATH=$PYTHON_PACKAGES_PATH \
+-DBUILD_SHARED_LIBS=ON \
+-DBUILD_PYTHON_SUPPORT=ON \
+-DCMAKE_BUILD_TYPE=RELEASE \
+-DCMAKE_INSTALL_PREFIX=/usr/local \
+-DBUILD_NEW_PYTHON_SUPPORT=ON \
+-DINSTALL_C_EXAMPLES=ON \
+-DINSTALL_PYTHON_EXAMPLES=ON  \
+-DBUILD_EXAMPLES=ON .. \
 -Wno-dev ../
-make -j17
+-DCMAKE_INSTALL_PREFIX=~/.opencv-3.0.0 \
+make -j$(nproc)
 sudo make install
+sudo ldconfig
